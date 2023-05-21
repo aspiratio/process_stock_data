@@ -130,6 +130,7 @@ urllib3==1.26.15
 w3lib==2.1.1
 wcwidth==0.2.6
 webcolors==1.13
+webdriver-manager==3.8.6
 webencodings==0.5.1
 websocket-client==1.5.1
 websockets==10.4
