@@ -9,11 +9,10 @@ from selenium.webdriver.common.by import By
 
 
 def append_dividend(driver, df_own_stock):
-
     # 各銘柄のみんかぶの配当ページから1株配当金を取得する
 
     for i, stock_code in enumerate(df_own_stock["コード"]):
-        print("start")
+        print(f"{stock_code} start")
         # 配当ページへアクセス
         url_dividend = f"https://minkabu.jp/stock/{stock_code}/dividend"
         driver.get(url_dividend)
@@ -42,6 +41,6 @@ def append_dividend(driver, df_own_stock):
         )  # 小数部分
         dividend = float(dividend_integer + dividend_decimal)
         df_own_stock.loc[i, "1株配当"] = dividend
-        print("finish")
+        print(f"{stock_code} finish")
 
     return df_own_stock
