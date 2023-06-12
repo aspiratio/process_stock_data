@@ -13,6 +13,8 @@ import config
 
 
 def get_own_stock_df(driver):
+    print("SBI scraping started...")
+
     # SBIネオモバイルのログインページへアクセス
     url_login = "https://trade.sbineomobile.co.jp/login"
     driver.get(url_login)
@@ -142,5 +144,7 @@ def get_own_stock_df(driver):
     df_own_stock["購入単価"] = df_all_stock["平均取得単価"].apply(
         lambda x: int(extract_number(x))
     )
+
+    print("Minkabu scraping finished")
 
     return df_own_stock
