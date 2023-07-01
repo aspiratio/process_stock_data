@@ -42,22 +42,12 @@ def get_own_stock_df(driver):
     driver.get(url_portfolio)
     time.sleep(3)
 
-    # 銘柄一覧の要素を取得する
-    div_element = driver.find_element(By.CLASS_NAME, "sp-main")
-
-    # 無限スクロールが終わるまでスクロールする
-    last_height = driver.execute_script("return arguments[0].scrollHeight", div_element)
+    # "もっと見る"ボタンが表示されなくなるまでクリックする
     while True:
-        driver.execute_script(
-            "arguments[0].scrollTo(0, arguments[0].scrollHeight);", div_element
-        )
-        time.sleep(2)
-        new_height = driver.execute_script(
-            "return arguments[0].scrollHeight", div_element
-        )
-        if new_height == last_height:
+        button_element = driver.find_elements(By.CLASS_NAME, "more")
+        if len(button_element) == 0:
             break
-        last_height = new_height
+        button_element[0].click()
 
     # ページのhtmlを取得してパースする
     html = driver.page_source.encode("utf-8")
