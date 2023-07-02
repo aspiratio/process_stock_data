@@ -57,7 +57,7 @@ def append_dividend(df_own_stock):
     results = []
 
     try:
-        with concurrent.futures.ProcessPoolExecutor() as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
             futures = [
                 executor.submit(process_stock, stock_code) for stock_code in stock_codes
             ]
