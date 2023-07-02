@@ -135,6 +135,6 @@ def get_own_stock_df(driver):
         lambda x: int(extract_number(x))
     )
 
-    print("Minkabu scraping finished")
+    print("SBI scraping finished")
 
     return df_own_stock
