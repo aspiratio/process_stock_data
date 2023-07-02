@@ -7,3 +7,4 @@ import os
 SBI_USERNAME = os.getenv('SBI_USERNAME')
 SBI_PASSWORD = os.getenv('SBI_PASSWORD')
 SPREADSHEET_KEY = os.getenv('SPREADSHEET_KEY')
+SHEET_NAME = os.getenv('SHEET_NAME')
