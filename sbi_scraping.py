@@ -48,6 +48,7 @@ def get_own_stock_df(driver):
         if len(button_element) == 0:
             break
         button_element[0].click()
+        time.sleep(1)
 
     # ページのhtmlを取得してパースする
     html = driver.page_source.encode("utf-8")
